@@ -132,7 +132,7 @@ M.path_sep = vim.startswith(vim.loop.os_uname().sysname, "Windows") and "\\" or 
 function M.is_valid(buf_num)
   if not buf_num or buf_num < 1 then return false end
   local exists = vim.api.nvim_buf_is_valid(buf_num)
-  return vim.bo[buf_num].buflisted and exists
+  return exists and vim.bo[buf_num].buflisted
 end
 
 ---@return number
